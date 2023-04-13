@@ -9,14 +9,18 @@ const SimpleInput = (props) => {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    //console.log(enteredName)
-    console.log(nameInput.current.value)
+    if(enteredName.length > 0) {
+      console.log(enteredName)
+      console.log(nameInput.current.value)
+      setEnteredName("")
+    }
+   
   }
   return (
     <form onSubmit={handleFormSubmit}>
       <div className="form-control">
         <label htmlFor="name">Your Name</label>
-        <input  ref={nameInput} onChange={handleEnteredName} type="text" id="name" />
+        <input value={enteredName} ref={nameInput} onChange={handleEnteredName} type="text" id="name" />
       </div>
       <div className="form-actions">
         <button>Submit</button>
