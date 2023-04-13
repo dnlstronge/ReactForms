@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const SimpleInput = (props) => {
-  const nameInput = useRef();
   const [enteredName, setEnteredName] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
@@ -17,13 +16,10 @@ const SimpleInput = (props) => {
     setEnteredNameTouched(true);
     if (enteredName.trim() === "") {
       setIsValid(false);
-
       return;
     }
 
     setIsValid(true);
-    console.log(enteredName);
-    // console.log(nameInput.current.value);
     setEnteredName("");
   };
   const handleBlur = (e) => {
@@ -46,7 +42,6 @@ const SimpleInput = (props) => {
         <label htmlFor="name">Your Name</label>
         <input
           value={enteredName}
-          ref={nameInput}
           onChange={handleEnteredName}
           type="text"
           id="name"
