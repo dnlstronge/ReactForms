@@ -24,7 +24,9 @@ const SimpleInput = (props) => {
     // console.log(nameInput.current.value);
     setEnteredName("");
   };
+  const handleBlur = () => {
 
+  }
   useEffect(() => {
     if (isValid) {
       console.log("Valid input detetected");
@@ -43,6 +45,7 @@ const SimpleInput = (props) => {
           onChange={handleEnteredName}
           type="text"
           id="name"
+          onBlur={handleBlur}
         />
         {nameIsValid && <p className="error-text">Name cannot be empty</p>}
       </div>
