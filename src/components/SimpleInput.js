@@ -8,7 +8,7 @@ const SimpleInput = (props) => {
 
   const handleEnteredName = (e) => {
     setEnteredName(e.target.value);
-    if (enteredName.trim() !== "") {
+    if (e.target.value.trim() !== "") {
       setIsValid(true);
     }
   };
