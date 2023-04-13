@@ -23,7 +23,7 @@ const SimpleInput = (props) => {
     if(!enteredNameIsValid) {
       return;
     }
-    setEnteredNameTouched(true);
+    setEnteredNameTouched(false);
     setEnteredName("");
     }
    
