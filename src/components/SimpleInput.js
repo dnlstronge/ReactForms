@@ -8,22 +8,21 @@ const SimpleInput = (props) => {
 
   const handleEnteredName = (e) => {
     setEnteredName(e.target.value);
-    
   };
   const handleFormSubmit = (e) => {
+    
     e.preventDefault();
+    setEnteredNameTouched(true);
     if (enteredName.trim() === "") {
       setIsValid(false);
-      setEnteredNameTouched(true)
+
       return;
-    } 
-    
+    }
+
     setIsValid(true);
     console.log(enteredName);
-   // console.log(nameInput.current.value);
+    // console.log(nameInput.current.value);
     setEnteredName("");
-    setEnteredNameTouched(true)
-    
   };
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const SimpleInput = (props) => {
       console.log("Valid input detetected");
     }
   }, [isValid]);
-  const nameIsValid = !isValid && enteredNameTouched
+  const nameIsValid = !isValid && enteredNameTouched;
   const nameValid = nameIsValid ? "form-control invalid" : " form-control";
 
   return (
