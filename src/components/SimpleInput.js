@@ -8,18 +8,22 @@ const SimpleInput = (props) => {
 
   const handleEnteredName = (e) => {
     setEnteredName(e.target.value);
+    
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (enteredName.trim() === "") {
       setIsValid(false);
+      setEnteredNameTouched(true)
       return;
-    } else {
-    }
+    } 
+    
     setIsValid(true);
     console.log(enteredName);
-    console.log(nameInput.current.value);
+   // console.log(nameInput.current.value);
     setEnteredName("");
+    setEnteredNameTouched(true)
+    
   };
 
   useEffect(() => {
@@ -27,8 +31,9 @@ const SimpleInput = (props) => {
       console.log("Valid input detetected");
     }
   }, [isValid]);
+  const nameIsValid = !isValid && enteredNameTouched
+  const nameValid = nameIsValid ? "form-control invalid" : " form-control";
 
-  const nameValid = isValid ? "form-control" : " form-control invalid";
   return (
     <form onSubmit={handleFormSubmit}>
       <div className={nameValid}>
@@ -40,7 +45,7 @@ const SimpleInput = (props) => {
           type="text"
           id="name"
         />
-        {!isValid && <p className="error-text">Name cannot be empty</p>}
+        {nameIsValid && <p className="error-text">Name cannot be empty</p>}
       </div>
       <div className="form-actions">
         <button>Submit</button>
