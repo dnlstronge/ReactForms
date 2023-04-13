@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const SimpleInput = (props) => {
   const nameInput = useRef()
@@ -22,6 +22,12 @@ const SimpleInput = (props) => {
     console.log(nameInput.current.value)
     setEnteredName("")
   }
+
+  useEffect(() => {
+    if(isValid) {
+      console.log("Valid input detetected")
+    }
+  }, [isValid])
 
   const nameValid = isValid ? "form-control" : " form-control invalid"
   return (
