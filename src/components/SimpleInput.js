@@ -11,10 +11,8 @@ const SimpleInput = (props) => {
     if (enteredName.trim() !== "") {
       setIsValid(true);
     }
-    
   };
   const handleFormSubmit = (e) => {
-    
     e.preventDefault();
     setEnteredNameTouched(true);
     if (enteredName.trim() === "") {
@@ -29,13 +27,11 @@ const SimpleInput = (props) => {
     setEnteredName("");
   };
   const handleBlur = (e) => {
-    setEnteredNameTouched(true)
+    setEnteredNameTouched(true);
     if (enteredName.trim() === "") {
       setIsValid(false);
-
-      return;
     }
-  }
+  };
   useEffect(() => {
     if (isValid) {
       console.log("Valid input detetected");
