@@ -9,12 +9,12 @@ const SimpleInput = (props) => {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    if(enteredName.length > 0) {
-      console.log(enteredName)
-      console.log(nameInput.current.value)
-      setEnteredName("")
+    if(enteredName.trim() === '') {
+      return;
     }
-   
+    console.log(enteredName)
+    console.log(nameInput.current.value)
+    setEnteredName("")
   }
   return (
     <form onSubmit={handleFormSubmit}>
