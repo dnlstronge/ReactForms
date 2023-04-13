@@ -22,15 +22,18 @@ const SimpleInput = (props) => {
     console.log(nameInput.current.value)
     setEnteredName("")
   }
+
+  const nameValid = isValid ? "form-control" : " form-control invalid"
   return (
     <form onSubmit={handleFormSubmit}>
-      <div className="form-control">
+      <div className={nameValid}>
         <label htmlFor="name">Your Name</label>
         <input value={enteredName} ref={nameInput} onChange={handleEnteredName} type="text" id="name" />
+        {!isValid &&
+      <p className="error-text">Name cannot be empty</p>}
       </div>
       <div className="form-actions">
-      {!isValid &&
-      <p>Please enter a valid name</p>}
+      
         <button>Submit</button>
       </div>
     </form>
