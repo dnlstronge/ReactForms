@@ -8,6 +8,10 @@ const SimpleInput = (props) => {
 
   const handleEnteredName = (e) => {
     setEnteredName(e.target.value);
+    if (enteredName.trim() !== "") {
+      setIsValid(true);
+    }
+    
   };
   const handleFormSubmit = (e) => {
     
@@ -24,8 +28,13 @@ const SimpleInput = (props) => {
     // console.log(nameInput.current.value);
     setEnteredName("");
   };
-  const handleBlur = () => {
+  const handleBlur = (e) => {
+    setEnteredNameTouched(true)
+    if (enteredName.trim() === "") {
+      setIsValid(false);
 
+      return;
+    }
   }
   useEffect(() => {
     if (isValid) {
